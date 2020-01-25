@@ -52,6 +52,9 @@ const updateBoard = (id) => {
 
   // @TODO, Your code here: use the above information to change the board variable(array of arrays)
   // HINT: in your browser open up the dev tools -> console
+
+  board[row][column] = currentMarker;
+
 }
 
 const checkForWin = () => {
@@ -70,7 +73,12 @@ const horizontalWin = () => {
   if (board[0][0] == currentMarker && board[0][1] == currentMarker && board[0][2] == currentMarker) {
     return true;
   } 
-  
+  if (board[1][0] == currentMarker && board[1][1] == currentMarker && board[1][2] == currentMarker) {
+    return true;
+  } 
+  if (board[2][0] == currentMarker && board[2][1] == currentMarker && board[2][2] == currentMarker) {
+    return true;
+  } 
 }
 
 const verticalWin = () => {
@@ -78,11 +86,20 @@ const verticalWin = () => {
   if (board[0][1] == currentMarker && board[1][1] == currentMarker && board[2][1] == currentMarker) {
     return true;
   }
+  if (board[0][0] == currentMarker && board[1][0] == currentMarker && board[2][0] == currentMarker) {
+    return true;
+  }
+  if (board[0][2] == currentMarker && board[1][2] == currentMarker && board[2][2] == currentMarker) {
+    return true;
+  }
 }
 
 const diagonalWin = () => {
   // @TODO, Your code here: to check for diagonal wins
   if (board[0][0] == currentMarker && board[1][1] == currentMarker && board[2][2] == currentMarker) {
+    return true;
+  }
+  if (board[0][2] == currentMarker && board[1][1] == currentMarker && board[2][0] == currentMarker) {
     return true;
   }
 }
@@ -106,6 +123,11 @@ const resetBoard = () => {
   }
   
   // @TODO, Your code here: make sure to reset the array of arrays to empty for a new game
+  board = [
+    ['','',''],
+    ['','',''],
+    ['','','']
+  ];
 }
 
 // **BONUSES**
