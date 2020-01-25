@@ -8,7 +8,7 @@
 // next to each @TODO you will find tasks that need to be finished
 // 4. GET THIS GAME WORKING!!
 
-let currentMarker = 'X'
+let currentMarker = "X"
 let board = [
   ['','',''],
   ['','',''],
@@ -27,6 +27,7 @@ const handleClick = (element) => {
 }
 
 const addMarker = (id) => {
+  document.getElementById(id).innerHTML = currentMarker;
   console.log(`We'll place a mark on square: ${id}`)
   // @TODO, Mix & Match. 
   // You will need the following pieces:
@@ -66,14 +67,24 @@ const checkForWin = () => {
 
 const horizontalWin = () => {
   // @TODO, Your code here: to check for horizontal wins
+  if (board[0][0] == currentMarker && board[0][1] == currentMarker && board[0][2] == currentMarker) {
+    return true;
+  } 
+  
 }
 
 const verticalWin = () => {
   // @TODO, Your code here: to check for vertical wins
+  if (board[0][1] == currentMarker && board[1][1] == currentMarker && board[2][1] == currentMarker) {
+    return true;
+  }
 }
 
 const diagonalWin = () => {
   // @TODO, Your code here: to check for diagonal wins
+  if (board[0][0] == currentMarker && board[1][1] == currentMarker && board[2][2] == currentMarker) {
+    return true;
+  }
 }
 
 const changeMarker = () => {
